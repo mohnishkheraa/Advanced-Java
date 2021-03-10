@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+    <div style="border: 2px solid black; text-align: center; width: 55%; margin-left: 1rem; background-color: rgb(89, 161, 233);">
+        <h1>Player Details</h1>
+
+    </div>
+    <form style="border: 2px solid black; width: 55%; margin-left: 1rem; margin-top: 0.2rem; background-color:rgb(154, 210, 231) ;" action="./InsertPlayerServlet" method="post">
+      <table style="margin-left: 15%;">
+       <tr><td>ID* </td><td><input type="text"style="margin: 1rem;border-style:groove;" name="pid" placeholder="Enter your id"></td></tr>
+       <tr> <td>Name* </td> <td><input type="text" style="margin: 1rem; border-style:groove;" name="pname" placeholder="Enter your name"></td></tr>
+       <tr><td>DOB* </td><td> <input type="date" style="margin: 1rem;border-style:groove;" name="pdob"></td></tr>
+     
+       <tr><td> Country* </td><td> <select style="margin: 1rem;border-style:groove; " name="pcountry">
+        <option>India</option>
+        <option>Pakistan</option>
+    </select></td></tr>
+    <tr>
+        <td>Skill* </td><td><input type="checkbox" name="pskill" style="margin: 1rem;border-style:groove;"><label>Batting</label><input type="checkbox" name="pskill" style="margin: 1rem;border-style:groove;"><label>Bowling</label></td>
+     </tr>
+     <tr><td> Bat Style </td> <td><input type="radio" name="pstyle" style="margin: 1rem;border-style:groove;"><label>Right Handed</label><input type="radio" name="pstyle"style="margin: 1rem;border-style:groove;"><label>Left Handed</label></td></tr>
+      
+        <tr><td>Runs* </td>  <td><input type="number" name="pruns" style="margin: 1rem;border-style:groove;" placeholder="Runs scored"></td></tr>
+            <tr><td>Wickets* </td><td> <input type="number" name="pwickets" style="margin: 1rem;border-style:groove;" placeholder="Wickets taken"></td></tr>
+           <tr><td>Team Id* </td><td> <input type="number" name="tid" style="margin: 1rem;border-style:groove;" placeholder=""></td></tr>
+             <tr><td> Matches* </td> <td><input type="number" name="pmatch" style="margin: 1rem;border-style:groove;" placeholder="Matches played"></td></tr>
+      </table> 
+      <div>
+        <div style="border: 2px solid black; text-align: center; margin: 1rem; background-color: rgb(89, 161, 233); padding: 1 rem;">
+            <input type="submit" name="Submit" style="margin: 1rem;border-style:groove;">
+            <input type="submit" value="Reset" style="margin: 1rem;border-style:groove;">
+    
+        </div>
+      </div>
+
+
+    </form>
+</body>
+</html>
