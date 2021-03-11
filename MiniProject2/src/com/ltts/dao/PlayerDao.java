@@ -3,6 +3,7 @@ package com.ltts.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +48,53 @@ public class PlayerDao {
 		return li; 
 		
 	}
-
 	
+	public Player getPlayerById(int id) throws Exception {
+		Player p=new Player();
+		List<Player> li=getAllPlayers();
+		for(Player p1:li) {
+			if(p1.getId() == id) {
+				p.setId(id);
+				
+				p.setPlayerName(p1.getPlayerName());
+				p.setDob(p1.getDob());
+				p.setCountry(p1.getCountry());
+				p.setSkill(p1.getSkill());
+				p.setBatStyle(p1.getBatStyle());
+				p.setRuns(p1.getRuns());
+				p.setWickets(p1.getWickets());
+				p.setTid(p1.getTid());
+				p.setMatches(p1.getMatches());
+				
+				
+			}
+		}
+		
+		return p;
+	
+}
+
+
+
+	public boolean updatePlayer(int playerid, String name, String dOB, String country, String skill, String style,
+			int runs, int wickets, int teamid, int matches) throws Exception {
+		// TODO Auto-generated method stub
+		Connection c=MyConnection.getConnection();
+		PreparedStatement ps=c.prepareStatement("UPDATE pappu SET playername = ?,DOB = ?,country = ?,skill=?,style=?,runs = ?,wickets = ?,matches = ? where player_id=?");
+		
+		ps.setString(1, name);
+		ps.setString(2, dOB);
+		ps.setString(3, country);
+		ps.setString(4, skill);
+		ps.setString(5, style);
+		ps.setInt(6, runs);
+		ps.setInt(7, wickets);
+		
+		ps.setInt(8, matches);
+		ps.setInt(9,playerid );
+		return ps.execute();
+
+	}
 	
 	
 	}
