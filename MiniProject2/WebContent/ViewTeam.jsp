@@ -13,6 +13,7 @@
 TeamDao pd=new TeamDao();
 List<Team> li=pd.getAllPlayers2();
 %>
+<h1>Team Details</h1>
 <table>
 <tr>
 <th>Team ID</th>
@@ -23,14 +24,14 @@ List<Team> li=pd.getAllPlayers2();
 <th></th>
 </tr>
 <%
-for(Team p:li){
+for(Team t:li){
 %>
 <tr>
-<td><%=p.getTeamId() %></td>
-<td><%=p.getTeamname() %></td>
-<td><%=p.getOwnerName() %></td>
-<td><%=p.getCoachName() %></td>
-
+<td><%=t.getTeamId() %></td>
+<td><%=t.getTeamname() %></td>
+<td><%=t.getOwnerName() %></td>
+<td><%=t.getCoachName() %></td>
+<td><a href="UpdateTeam.jsp?id=<%=t.getTeamId()%>"><button class="button">UPDATE</button></a></td>
 </tr>
 <%} %>
 

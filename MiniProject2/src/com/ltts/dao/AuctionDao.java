@@ -39,5 +39,42 @@ public class AuctionDao {
 		return li; 
 		
 	}
+	
+	public Auction getAuctionById(int aid) throws Exception {
+		Auction t=new Auction();
+		List<Auction> li=getAllPlayers1();
+		for(Auction t1:li) {
+			if(t1.getAuc_id() == aid) {
+				t.setAuc_id(aid);
+				t.setAuc_id(t1.getAuc_id());
+				t.setTeam_id(t1.getTeam_id());
+				t.setAmount(t1.getAmount());
+				
+				
+				
+		
+				
+				
+			}
+		}
+		
+		return t;
+	
+}
+public boolean updateAuction(int auctionid, int playerid, int teamid,int Amount) throws Exception {
+	// TODO Auto-generated method stub
+	
+	Connection c=MyConnection.getConnection();
+	PreparedStatement ps=c.prepareStatement("UPDATE auction SET amount = ? where auc_id=?");
+	ps.setInt(1, Amount);
+	
+	ps.setInt(2, auctionid);
+	
+
+return ps.execute();
+
+
+
+}
 
 }

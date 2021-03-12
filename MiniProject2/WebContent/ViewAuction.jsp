@@ -13,6 +13,7 @@
 AuctionDao pd=new AuctionDao();
 List<Auction> li=pd.getAllPlayers1();
 %>
+<h1>Auction Details</h1>
 <table>
 <tr>
 <th>Auction ID</th>
@@ -23,14 +24,14 @@ List<Auction> li=pd.getAllPlayers1();
 <th></th>
 </tr>
 <%
-for(Auction p:li){
+for(Auction a:li){
 %>
 <tr>
-<td><%=p.getAuc_id() %></td>
-<td><%=p.getPlayer_id() %></td>
-<td><%=p.getTeam_id() %></td>
-<td><%=p.getAmount() %></td>
-
+<td><%=a.getAuc_id() %></td>
+<td><%=a.getPlayer_id() %></td>
+<td><%=a.getTeam_id() %></td>
+<td><%=a.getAmount() %></td>
+<td><a href="UpdateAuction.jsp?id=<%=a.getAuc_id()%>"><button class="button">UPDATE</button></a></td>
 </tr>
 <%} %>
 

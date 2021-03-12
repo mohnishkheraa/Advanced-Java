@@ -1,6 +1,7 @@
 package com.ltts.dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -38,4 +39,42 @@ public class TeamDao {
 		return li; 
 		
 	}
+	
+	public Team getTeamById(int tid) throws Exception {
+		Team t=new Team();
+		List<Team> li=getAllPlayers2();
+		for(Team t1:li) {
+			if(t1.getTeamId() == tid) {
+				t.setTeamId(tid);
+				t.setTeamId(t1.getTeamId());
+				t.setTeamname(t1.getTeamname());
+				t.setOwnerName(t1.getOwnerName());
+				t.setCoachName(t1.getCoachName());
+			}
+		}
+		
+		return t;
+	
+}
+public boolean updateTeam(int teamId, String teamname, String ownerName, String coachName) throws Exception {
+	// TODO Auto-generated method stub
+	
+	Connection c=MyConnection.getConnection();
+	PreparedStatement ps=c.prepareStatement("UPDATE team SET teamname = ?,ownername = ?, coachname = ? where team_id=?");
+	ps.setString(1,teamname);
+	ps.setString(2, ownerName);
+	ps.setString(3, coachName);
+	ps.setInt(4, teamId);
+	
+
+return ps.execute();
+
+
+
+	
+
+
+
+
+}
 }
